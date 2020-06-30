@@ -1,0 +1,78 @@
+$green: #2ecc71;
+$white: #ffffff;
+
+#formWrap {
+  width: 70%;
+  margin: 50px auto;
+}
+
+hr {
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.form-control-underlined {
+  border-width: 0;
+  border-bottom: 1px solid $green;
+  border-radius: 0;
+  padding-left: 0;
+}
+
+fieldset {
+  width: 100%;
+}
+
+.advancedSearchToggle {
+  user-select: none;
+  cursor: pointer;
+}
+
+/*To remove the outline that appears on clicking the input textbox*/
+input:focus {
+  outline: none;
+}
+
+/* To format the placeholder text color */
+::-webkit-input-placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+:-ms-input-placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+
+@media (max-width: 767px) {
+  #formWrap {
+    width: 100%;
+    margin: 50px auto;
+  }
+
+  .display-1 {
+    font-size: 2.6rem;
+  }
+}

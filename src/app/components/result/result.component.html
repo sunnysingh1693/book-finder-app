@@ -1,0 +1,28 @@
+<div *ngIf="books.length == 0" class="loader_img border border-dark">
+  <a href="{{waitGIF}}" target="_blank">
+    <img src="{{waitGIF}}" alt="waiting_gif">
+  </a>
+</div>
+
+<div class="row mb-3 mt-4">
+  <p class="lead col-12 bd-lead" *ngIf="books.length >= 1">Showing results for <em>{{inputTitle}}</em> ...</p> <br>
+  <div class="col-md-6 col-sm-12 p-0" *ngFor="let book of books; index as i;">
+    <div class="card flex-md-row m-2 box-shadow h-md-250 row flex-wrap">
+      <div class="card-body col-md-8 col-sm-12 p-0 flex-wrap">
+        <strong class="d-inline-block mb-2 text-success">{{(book.volumeInfo.averageRating) || "NR"}}<span *ngIf="book.volumeInfo.averageRating">/5</span></strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="{{book.volumeInfo.previewLink}}">{{book.volumeInfo.title}}</a>
+        </h3>
+        <div class="mb-1 text-muted">Published On: {{book.volumeInfo.publishedDate}}</div>
+        <p class="card-text mb-auto">Author<span *ngIf="book.volumeInfo.authors.length > 1">s</span>: <span *ngFor="let author of book.volumeInfo.authors; let last = last;">{{author}}<span *ngIf="!last">, </span> </span>
+      </div>
+      <div *ngIf="book.volumeInfo.imageLinks" class="thumbnail col-md-4 col-sm-12 p-0 flex-wrap">
+        <a href="{{book.volumeInfo.previewLink}}" target="_blank">
+          <img src="{{book.volumeInfo.imageLinks.thumbnail}}" alt="thumbnail_image_{{i+1}}"
+            class="border border-dark">
+        </a>
+        <div class="font-italic img-text" style="color: #2ecc71; font-size: 10px;">Click image to View</div>
+      </div>
+    </div>
+  </div>
+</div>
