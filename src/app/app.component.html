@@ -3,13 +3,13 @@
   <hr>
   <div id="formWrap" class="clearfix row">
     <div class="col-12">
-      <form [formGroup]="bookEnquiryForm" action="" (ngSubmit)="searchQuery(bookEnquiryForm.value)">
+      <form [formGroup]="bookEnquiryForm" (ngSubmit)="searchQuery(bookEnquiryForm.value)">
         <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
           <div class="input-group">
             <div class="input-group-append">
               <button [disabled]="bookEnquiryForm.invalid" id="button-addon1" type="submit" class="btn btn-link text-primary"><fa-icon [icon]="faSearch"></fa-icon></button>
             </div>
-            <input formControlName="title" type="search" placeholder="Which book are you looking for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" id="inputTitle" autofocus>
+            <input formControlName="title" type="search" placeholder="Which book are you looking for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" #inputTitleSelector autofocus>
           </div>
         </div>
         <blockquote class="float-right text-right advancedSearchToggle blockquote" *ngIf="!isAdvanced" (click)="advancedSearchToggle()">Advance Search</blockquote>

@@ -11,9 +11,9 @@ export class ResultComponent implements OnInit {
   @Input() books:any = [];
   @Input() inputTitle: string;
 
-  waitGIF = "https://media1.tenor.com/images/0d165bca21c071893e134ab403dd0d0e/tenor.gif?itemid=3838547";
+  waitGIF: string = "https://media1.tenor.com/images/0d165bca21c071893e134ab403dd0d0e/tenor.gif?itemid=3838547";
 
-  constructor(private configService: ConfigService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

@@ -1,0 +1,8 @@
+{
+  "/books/v1/volumes/*": {
+     "target": "https://www.googleapis.com",
+     "secure": false,
+     "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

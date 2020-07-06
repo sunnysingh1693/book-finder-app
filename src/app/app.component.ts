@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ConfigService } from './services/config.service';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -8,16 +8,12 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  appName = 'book-finder app';
+export class AppComponent implements OnInit {
+  appName: string = 'book-finder app';
   bookEnquiryForm: FormGroup;
   title: FormControl;
   author: FormControl;
   publisher: FormControl;
-  books: any = [];
-  inputTitle: string;
-  showResult: boolean = false;
-  isAdvanced: boolean = false;
 
   constructor(private configService: ConfigService) { }
 
@@ -36,11 +32,16 @@ export class AppComponent {
     // this.searchQuery(obj);
   }
 
+  isAdvanced: boolean = false;
   advancedSearchToggle() {
     this.isAdvanced = !this.isAdvanced;
   }
 
-  searchQuery(formValues) {
+  books: any = [];
+  inputTitle: string;
+  showResult: boolean = false;
+  @ViewChild('inputTitleSelector') inputTitleSelector;
+  searchQuery(formValues): boolean {
     if (this.title.value.trim().length === 0) {
       alert('Can not submit whitespaces.\nTry again!!');
       this.title.setValue('');
@@ -53,9 +54,9 @@ export class AppComponent {
         }
       );
       this.inputTitle = formValues.title;
-      console.log(this.inputTitle);
+      // console.log(this.inputTitle);
       this.showResult = true;
-      document.getElementById('inputTitle').focus();
+      this.inputTitleSelector.nativeElement.focus();
     }
   }
 
